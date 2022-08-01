@@ -1,4 +1,6 @@
 # main packages
+fastapi
+uvicorn[standard]
 
 # dev packaegs
 black
