@@ -3,12 +3,6 @@
   "workbench.colorCustomizations": {
     "titleBar.border": "#ffffff"
   },
-  // jupyter
-  "jupyter.generateSVGPlots": true,
-  "notebook.lineNumbers": "on",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
   // python
   "autoDocstring.docstringFormat": "numpy",
   "python.formatting.provider": "black",
