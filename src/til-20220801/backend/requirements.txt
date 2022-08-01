@@ -1,4 +1,5 @@
 # main packages
+altair
 fastapi
 uvicorn[standard]
 
