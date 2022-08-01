@@ -7,7 +7,7 @@
     "format": "prettier --write src/",
     "lint": "eslint --ext .jsx,.js,.tsx,.ts src/",
     "production": "webpack --mode=production",
-    "start": "webpack-dev-server --mode=developemnt"
+    "start": "webpack-dev-server --mode=development"
   },
   "author": "iimuz",
   "license": "MIT",
