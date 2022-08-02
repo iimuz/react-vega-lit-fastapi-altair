@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
-import embed, { VisualizationSpec } from 'vega-embed';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
-const HOST = 'http://localhost:8000';
+import { Hello } from './hello';
+import { SimpleLineJson } from './simple-line-json';
 
 const App = (): JSX.Element => {
-  const [message, setMessage] = useState('');
-  useEffect(() => {
-    getHello()
-      .then((msg) => setMessage(msg))
-      .catch((err) => console.log(err));
-    getSimpleLineJson()
-      .then((data) => embed('#vis', data))
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, [message]);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<Home />} />
+        <Route path={'/message'} element={<Hello />} />
+        <Route path={'/simple-line-json'} element={<SimpleLineJson />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
+const Home = (): JSX.Element => {
   return (
     <div>
-      <h1>{message}</h1>
-      <div id='vis'></div>
+      <ul>
+        <li>
+          <Link to='/message'>Message</Link>: バックエンドに接続して文字列取得できるか確認。
+        </li>
+        <li>
+          <Link to='/simple-line-json'>Simple line json</Link>: バックエンドのAltairでjson出力してvega-embedで描画。
+        </li>
+      </ul>
     </div>
   );
 };
@@ -28,20 +36,3 @@ const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
 const root = createRoot(container);
 root.render(<App />);
-
-async function getHello(): Promise<string> {
-  const res = await fetch(HOST);
-  if (!res.ok) return 'error';
-  const data = await res.json();
-  const message = data['message'];
-
-  return message;
-}
-
-async function getSimpleLineJson(): Promise<VisualizationSpec> {
-  const res = await fetch(HOST + '/simple-line');
-  if (!res.ok) return {};
-  const spec: VisualizationSpec = await res.json();
-
-  return spec;
-}
