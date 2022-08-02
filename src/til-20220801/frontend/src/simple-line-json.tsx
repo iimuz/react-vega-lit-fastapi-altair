@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import embed, { VisualizationSpec } from 'vega-embed';
 import { HOST } from './fetcher';
 
+// バックエンドからVega-embedで描画するためのjsonが送られてきた場合の描画
 export const SimpleLineJson = (): JSX.Element => {
   const canvasName = 'vis';
 
@@ -15,6 +16,7 @@ export const SimpleLineJson = (): JSX.Element => {
   return <div id={canvasName}></div>;
 };
 
+// バックエンドからvega-liteで描画するためのjsonを取得
 async function getSimpleLineJson(): Promise<VisualizationSpec> {
   const res = await fetch(HOST + '/simple-line');
   if (!res.ok) return {};

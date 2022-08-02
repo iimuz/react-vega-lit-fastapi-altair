@@ -17,6 +17,12 @@ const App = (): JSX.Element => {
   );
 };
 
+const container = document.getElementById('root');
+if (!container) throw new Error('Failed to find the root element');
+const root = createRoot(container);
+root.render(<App />);
+
+// 各実装へのリンク一覧を記載
 const Home = (): JSX.Element => {
   return (
     <div>
@@ -31,8 +37,3 @@ const Home = (): JSX.Element => {
     </div>
   );
 };
-
-const container = document.getElementById('root');
-if (!container) throw new Error('Failed to find the root element');
-const root = createRoot(container);
-root.render(<App />);
