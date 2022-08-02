@@ -10,6 +10,13 @@ Altairでの描画結果をReact.jsで描画する方法の試作。
 
 ## backend
 
+下記コマンドなどの利用を想定しています。
+(仮想環境は有効化されていると想定したコマンドとなります。)
+
+- `uvicorn src.main:app --reload`: ライブサーバーの起動
+  - `http://localhost:8000`: ブラウザでの基本アクセス
+  - `http://localhost:8000/docs`: Swagger UIへのアクセス
+
 ### 仮想環境の構築
 
 仮想環境の構築には python 標準で付属している venv の利用を想定しています。
