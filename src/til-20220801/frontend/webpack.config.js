@@ -1,18 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/main.tsx",
+  entry: './src/main.tsx',
   output: {
     path: `${__dirname}/build`,
-    filename: "main.js",
+    filename: 'main.js',
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
-      }
-    ]
+        use: 'ts-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -21,7 +21,8 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
-  target: ["web", "es5"],
-}
+  target: ['web', 'es5'],
+  devServer: { historyApiFallback: true },
+};
