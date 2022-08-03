@@ -9,7 +9,7 @@ export const SimpleLineJson = (): JSX.Element => {
 
   useEffect(() => {
     getSimpleLineJson()
-      .then((data) => embed(`#{canvasName}`, data))
+      .then((data) => embed(`#${canvasName}`, data))
       .catch((err) => console.log(err));
   }, []);
 
