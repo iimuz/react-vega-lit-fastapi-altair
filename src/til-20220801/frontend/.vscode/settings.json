@@ -9,6 +9,12 @@
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "Glavin001.unibeautify-vscode"
   },
+  // javascript
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // json
   "[json]": {
     "editor.formatOnSave": true,
