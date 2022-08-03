@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { Hello } from './hello';
+import { SimpleLineCompile } from './simple-line-compile';
 import { SimpleLineJson } from './simple-line-json';
 
 const App = (): JSX.Element => {
@@ -12,6 +13,7 @@ const App = (): JSX.Element => {
         <Route path={'/'} element={<Home />} />
         <Route path={'/message'} element={<Hello />} />
         <Route path={'/simple-line-json'} element={<SimpleLineJson />} />
+        <Route path={'/simple-line-compile'} element={<SimpleLineCompile />} />
       </Routes>
     </BrowserRouter>
   );
@@ -32,6 +34,10 @@ const Home = (): JSX.Element => {
         </li>
         <li>
           <Link to='/simple-line-json'>Simple line json</Link>: バックエンドのAltairでjson出力してvega-embedで描画。
+        </li>
+        <li>
+          <Link to='/simple-line-compile'>Simple line compile</Link>:
+          バックエンドからデータだけ取得してvega-liteでcompileしてVegaで描画。
         </li>
       </ul>
     </div>
